@@ -1,12 +1,21 @@
-var express = require("express");
-var bodyParser = require("body-parser");
-var routes = require("./routes/routes.js");
-var app = express();
+const exphbs = require('express-handlebars');
+const express = require("express");
+const logger = require("./middleware/logger")
+const app = express();
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+//middleware
+app.use(logger);
+app.use(express.json());
+app.use(express.urlencoded({extended: false}));
 
-routes(app);
+//notification API
+app.use('/createUser', require('./notification/routes'))
+
+
+//Okta API
+app.use('/okta', require('./okta/oktaroutes'))
+
+
 
 var server = app.listen(3000, function () {
     console.log("app running on port.", server.address().port);

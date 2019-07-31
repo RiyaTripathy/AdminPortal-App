@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \\\"Error: no test specified\\\" && exit 1"
+    "start": "node app",
+    "dev": "nodemon app"
   },
   "author": "suvadeep",
   "license": "ISC",
@@ -13,7 +14,13 @@
     "body-parser": "^1.19.0",
     "circular-json": "^0.5.9",
     "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
     "faker": "^4.1.0",
+    "moment": "^2.24.0",
     "nodemailer": "^6.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1",
+    "prettier": "1.18.2"
   }
 }
