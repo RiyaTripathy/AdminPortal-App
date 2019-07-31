@@ -1,6 +1,5 @@
-const exphbs = require('express-handlebars');
 const express = require("express");
-const logger = require("./middleware/logger")
+const logger = require("./middleware/logger");
 const app = express();
 
 //middleware
@@ -8,12 +7,13 @@ app.use(logger);
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
+
 //notification API
-app.use('/createUser', require('./notification/routes'))
+app.use('/createUser', require('./notification/routes'));
 
 
 //Okta API
-app.use('/okta', require('./okta/oktaroutes'))
+app.use('/okta', require('./okta/oktaroutes'));
 
 
 
