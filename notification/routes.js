@@ -35,7 +35,7 @@ router.post("/notify", function (req, res) {
         secure: false,
         auth: {
             user: 'suvadeepunplugged@gmail.com',
-            pass: 'Suvadeep'
+            pass: ''
         }
     });
 
