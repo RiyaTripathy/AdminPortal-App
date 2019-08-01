@@ -34,8 +34,8 @@ router.post("/notify", function (req, res) {
         port: 587,
         secure: false,
         auth: {
-            user: '',
-            pass: ''
+            user: 'suvadeepunplugged@gmail.com',
+            pass: 'Suvadeep'
         }
     });
 
@@ -44,7 +44,7 @@ router.post("/notify", function (req, res) {
 
     let mailOptions = {
         from: 'noreply.halliburton.com',
-        to: 'suvaghosh@deloitte.com',
+        to: 'rtripathy@deloitte.com',
         subject: `New User Request - ${req.body.data.user.profile.firstName} ${req.body.data.user.profile.lastName}`,
         text: 'None',
         html: output

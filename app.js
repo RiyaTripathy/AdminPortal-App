@@ -12,7 +12,7 @@ app.use(express.urlencoded({extended: false}));
 app.use('/createUser', require('./notification/routes'));
 
 
-//Okta API
+//Okta API 
 app.use('/okta', require('./okta/oktaroutes'));
 
 
