@@ -24,9 +24,12 @@ router.post("/notify", function (req, res) {
         <ul>
             <li>First Name: ${req.body.data.user.profile.firstName}</li>
             <li>Last Name: ${req.body.data.user.profile.lastName}</li>
+            <li>Email: ${req.body.data.user.profile.email}</li>
             <li>Login: ${req.body.data.user.profile.login}</li>
+            <li>Justification: ${req.body.data.user.profile.justification}</li>
             <li>Phone: ${req.body.data.user.profile.mobilePhone}</li>
-        </ul>`;
+        </ul>
+`;
 
 
     let transport = nodemailer.createTransport({
@@ -34,8 +37,8 @@ router.post("/notify", function (req, res) {
         port: 587,
         secure: false,
         auth: {
-            user: 'suvadeepunplugged@gmail.com',
-            pass: 'Suvadeep'
+            user: 'oktatestingactivity@gmail.com',
+            pass: 'Password@123'
         }
     });
 

@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "@okta/oidc-middleware": "^2.0.0",
+    "@okta/okta-sdk-nodejs": "^2.0.0",
     "bluebird": "^3.5.5",
     "body-parser": "^1.19.0",
     "circular-json": "^0.5.9",
