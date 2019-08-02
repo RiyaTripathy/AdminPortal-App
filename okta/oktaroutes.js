@@ -1,14 +1,24 @@
-var express = require("express");
-const http = require("http");
-const okta = express();
+var express = require("express");
+var request = require("request");
+var https = require('https');
+const oktapost = express();
 
 
 //approval API call to create user
-okta.post("/createUser", function (req, res) {
-    console.log(req.body.data.user.profile);
-    var apiKey = 'SSWS 00mS7WX5Hink4vKrAfWq_DoEd98-cGadqgeq-HyztM';
-    let url = "http://halliburton.oktapreview.com/api/v1/users?activate=false";
-    //call Okta to create a user
+oktapost.post("/createUser",function (req, res) {
+    const okta = require('@okta/okta-sdk-nodejs');
+    const client = new okta.Client({
+        orgUrl: '________https://halliburton.oktapreview.com/',
+        token: '00mS7WX5Hink4vKrAfWq_DoEd98-cGadqgeq-HyztM'    // Obtained from Developer Dashboard
+    });
+    console.log(req.body.data.user);
+    requestData=req.body.data.user;
+
+    client.createUser(requestData)
+        .then(user => {
+            console.log('Created user', user);
+        });
 });
 
-module.exports = okta;
+
+module.exports = oktapost; 
