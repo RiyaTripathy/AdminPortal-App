@@ -16,7 +16,6 @@ app.use('/createUser', require('./notification/routes'));
 app.use('/okta', require('./okta/oktaroutes'));
 
 
-
-var server = app.listen(8080, function () {
+var server = app.listen(3000, function () {
     console.log("app running on port.", server.address().port);
 });

@@ -8,7 +8,7 @@ const oktapost = express();
 oktapost.post("/createUser",function (req, res) {
     const okta = require('@okta/okta-sdk-nodejs');
     const client = new okta.Client({
-        orgUrl: '________https://halliburton.oktapreview.com/',
+        orgUrl: 'https://halliburton.oktapreview.com/',
         token: '00mS7WX5Hink4vKrAfWq_DoEd98-cGadqgeq-HyztM'    // Obtained from Developer Dashboard
     });
     console.log(req.body.data.user);
