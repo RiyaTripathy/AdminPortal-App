@@ -13,7 +13,6 @@ oktapost.post("/createUser",function (req, res) {
     });
     console.log(req.body.data.user);
     requestData=req.body.data.user;
-
     client.createUser(requestData)
         .then(user => {
             console.log('Created user', user);
@@ -21,4 +20,4 @@ oktapost.post("/createUser",function (req, res) {
 });
 
 
-module.exports = oktapost; 
+module.exports = oktapost;
