@@ -36,6 +36,35 @@ router.post("/notify", function (req, res) {
     </form>
 `;
 
+
+    const form=`<!DOCTYPE html>
+    <html>
+    <head>
+    <meta charset="utf-8" />
+    <title>CSS3 Contact Form</title>
+    </head>
+    <body>
+    <div id="contact">
+        <h1>Send an email</h1>
+        <form action="http://ec2-3-17-73-62.us-east-2.compute.amazonaws.com:3000/okta/myaction" method="post">
+            <fieldset>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" />
+    
+                <label for="email">Email:</label>
+                <input type="email" id="email" placeholder="Enter your email address" />
+    
+                <label for="message">Message:</label>
+                <textarea id="message" placeholder="What's on your mind?"></textarea>
+    
+                <input type="submit" value="Send message" />
+    
+            </fieldset>
+        </form>
+    </div>
+    </body>
+    </html>`;
+
     let transport = nodemailer.createTransport({
         host: 'smtp.gmail.com',
         port: 587,
@@ -52,7 +81,7 @@ router.post("/notify", function (req, res) {
         to: 's.ghosh3671@gmail.com',
         subject: `New User Request - ${req.body.data.user.profile.firstName} ${req.body.data.user.profile.lastName}`,
         text: 'None',
-        html: output
+        html: form
     };
 
     transport.sendMail(mailOptions, (error, info) => {
