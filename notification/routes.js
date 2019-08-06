@@ -1,6 +1,7 @@
-const nodemailer = require('nodemailer');
 const express = require("express");
-
+const nodemailer = require('nodemailer');
+//const mail = require('./fetchrecipient.js');
+const mail = require('../okta/oktaroutes');
 const router = express();
 
 router.post("/notify", function (req, res) {
@@ -32,38 +33,39 @@ router.post("/notify", function (req, res) {
 `;
 
 
-    let transport = nodemailer.createTransport({
-        host: 'smtp.gmail.com',
-        port: 587,
-        secure: false,
-        auth: {
-            user: 'oktatestingactivity@gmail.com',
-            pass: 'Password@123'
-        }
-    });
+            let transport = nodemailer.createTransport({
+                host: 'smtp.gmail.com',
+                port: 587,
+                secure: false,
+                auth: {
+                    user: 'oktatestingactivity@gmail.com',
+                    pass: 'Password@123'
+                }
+            });
 
+            mail.get
+           // console.log(emaillist)
 
+            let mailOptions = {
+                from: 'noreply.halliburton.com',
+                to: 'rtripathy@deloitte.com',
+                //to: emaillist[1],
+                subject: `New User Request - ${req.body.data.user.profile.firstName} ${req.body.data.user.profile.lastName}`,
+                text: 'None',
+                html: output
+            };
 
-
-    let mailOptions = {
-        from: 'noreply.halliburton.com',
-        to: 'suvaghosh@deloitte.com',
-        subject: `New User Request - ${req.body.data.user.profile.firstName} ${req.body.data.user.profile.lastName}`,
-        text: 'None',
-        html: output
-    };
-
-    transport.sendMail(mailOptions, (error, info) => {
-        if(error){
-            return console.log(error);
-        }
-        console.log("Message Sent: %s", info.message);
-        console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
-    });
+            transport.sendMail(mailOptions, (error, info) => {
+                if (error) {
+                    return console.log(error);
+                }
+                console.log("Message Sent: %s", info.message);
+                console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+            });
   });
 
 
-
 module.exports = router;
+
 
 
