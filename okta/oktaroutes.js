@@ -21,5 +21,4 @@ oktapost.post("/createUser",function (req, res) {
         });
 });
 
-
 module.exports = oktapost;

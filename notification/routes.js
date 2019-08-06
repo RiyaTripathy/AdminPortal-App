@@ -29,6 +29,7 @@ router.post("/notify", function (req, res) {
             <li>Justification: ${req.body.data.user.profile.justification}</li>
             <li>Phone: ${req.body.data.user.profile.mobilePhone}</li>
         </ul>
+        <a href="http://ec2-3-17-73-62.us-east-2.compute.amazonaws.com:3000/okta/info">Approve here</a>
         <form action="http://ec2-3-17-73-62.us-east-2.compute.amazonaws.com:3000/okta/info" method="get">
         <input type="submit" value="Approve" 
              name="Approve" id="frm1_submit" />
@@ -48,7 +49,7 @@ router.post("/notify", function (req, res) {
 
     let mailOptions = {
         from: 'noreply.halliburton.com',
-        to: 's.ghosh3671@gmail.com',
+        to: 'steven.alhanati@halliburton.com',
         subject: `New User Request - ${req.body.data.user.profile.firstName} ${req.body.data.user.profile.lastName}`,
         text: 'None',
         html: output
