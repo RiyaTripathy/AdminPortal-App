@@ -49,7 +49,7 @@ router.post("/notify", function (req, res) {
 
     let mailOptions = {
         from: 'noreply.halliburton.com',
-        to: 'steven.alhanati@halliburton.com',
+        to: 's.ghosh3671@gmail.com',
         subject: `New User Request - ${req.body.data.user.profile.firstName} ${req.body.data.user.profile.lastName}`,
         text: 'None',
         html: output
