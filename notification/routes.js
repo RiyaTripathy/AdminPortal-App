@@ -30,8 +30,8 @@ router.post("/notify", function (req, res) {
             <li>Phone: ${req.body.data.user.profile.mobilePhone}</li>
         </ul>
         <form action="http://ec2-3-17-73-62.us-east-2.compute.amazonaws.com:3000/okta/info" method="get">
-        <input type="submit" value="Go to my link location" 
-             name="Submit" id="frm1_submit" />
+        <input type="submit" value="Approve" 
+             name="Approve" id="frm1_submit" />
     </form>
 `;
 
