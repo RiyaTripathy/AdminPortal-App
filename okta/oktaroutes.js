@@ -3,7 +3,9 @@ var request = require("request");
 var https = require('https');
 const oktapost = express();
 
-
+oktapost.get("/info",(req,res) =>{
+    res.send("Got message");
+})
 //approval API call to create user
 oktapost.post("/createUser",function (req, res) {
     const okta = require('@okta/okta-sdk-nodejs');
