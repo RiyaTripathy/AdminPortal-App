@@ -174,9 +174,7 @@ router.post("/notify", function (req, res) {
               </div>
           </fieldset>
           <fieldset>
-          <div>
-          div><label>Justification *</label><input type="textarea" name="justification" value="${req.body.data.user.profile.justification}" required></div>
-          </div>
+          <div><label>Justification *</label><input type="textarea" name="justification" value="${req.body.data.user.profile.justification}" required></div>
           </fieldset>
           <button type="submit">Approve</button>
         </form>
