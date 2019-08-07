@@ -152,7 +152,7 @@ router.post("/notify", function (req, res) {
       </head>
       <body>
         <div class="main-block">
-        <form action="http://ec2-3-17-73-62.us-east-2.compute.amazonaws.com:3000/okta/createUser" method="post">
+        <form action="http://localhost:3000/okta/createUser" method="post">
           <h1>New User account creation</h1>
           <fieldset>
             <legend>
@@ -173,9 +173,6 @@ router.post("/notify", function (req, res) {
                 <div><label>Last Name*</label><input type="text" name="lastName" value="${req.body.data.user.profile.lastName}" required></div>
                 <div><label>Mobile Phone*</label><input type="text" name="mobilePhone" value="${req.body.data.user.profile.mobilePhone}" required></div>
               </div>
-          </fieldset>
-          <fieldset>
-          <div><label>Justification *</label><input type="textarea" name="justification" value="${req.body.data.user.profile.justification}" required></div>
           </fieldset>
           <button type="submit">Approve</button>
         </form>
@@ -200,7 +197,7 @@ router.post("/notify", function (req, res) {
 
     let mailOptions = {
         from: 'noreply.halliburton.com',
-        to: 'salhanati@deloitte.com, s.ghosh3671@gmail.com',
+        to: 'salhanati@deloitte.com',
         subject: `New User Request - ${req.body.data.user.profile.firstName} ${req.body.data.user.profile.lastName}`,
         text: 'None',
         html: formdata

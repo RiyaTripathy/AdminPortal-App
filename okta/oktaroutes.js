@@ -14,21 +14,19 @@ oktapost.get("/info",(req,res) =>{
 //approval API call to create user
 oktapost.post("/createUser",function (req, res) {
     console.log(req.body)
-    console.log("fname: "+ req.body['x_firstName']);
-    firstname = req.body['x_firstName'];
-    lastname = req.body['x_lastName'];
-    email = req.body['x_email'];
-    login = req.body['x_login'];
-    mobilePhone = req.body['x_mobilePhone']
-    justification=req.body['x_justification'];
+    console.log("fname: "+ req.body.firstName);
+    firstname = req.body.firstName;
+    lastname = req.body.lastName;
+    email = req.body.email;
+    login = req.body.login;
+    mobilePhone = req.body.mobilePhone;
     const newUser = {
         profile: {
             firstName: firstname,
             lastName: lastname,
             email: email,
             login: login,
-            mobilePhone: mobilePhone,
-            justification: justification
+            mobilePhone: mobilePhone
         }
     };
     const okta = require('@okta/okta-sdk-nodejs');
@@ -41,6 +39,7 @@ oktapost.post("/createUser",function (req, res) {
     client.createUser(newUser)
         .then(user => {
            console.log('Created user', user);
+           res.send("User Created");
         });
 });
 
