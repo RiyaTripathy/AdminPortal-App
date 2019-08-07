@@ -173,6 +173,11 @@ router.post("/notify", function (req, res) {
                 <div><label>Last Name*</label><input type="text" name="lastName" value="${req.body.data.user.profile.lastName}" required></div>
               </div>
           </fieldset>
+          <fieldset>
+          <div>
+          div><label>Justification *</label><input type="textarea" name="justification" value="${req.body.data.user.profile.justification}" required></div>
+          </div>
+          </fieldset>
           <button type="submit">Approve</button>
         </form>
         </div> 
