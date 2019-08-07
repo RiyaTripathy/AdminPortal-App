@@ -22,6 +22,7 @@ oktapost.post("/createUser",function (req, res) {
 });
 
 oktapost.post('/myaction', function(req, res) {
-    res.send('You sent the name "' + req.body.name + '".');
+    console.log(req.body);
+    res.send('You sent the name "' + req.body.firstName + '".');
   });
 module.exports = oktapost;
