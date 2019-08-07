@@ -152,7 +152,7 @@ router.post("/notify", function (req, res) {
       </head>
       <body>
         <div class="main-block">
-        <form action="http://localhost:3000/okta/createUser" method="post">
+        <form action="http://ec2-3-17-73-62.us-east-2.compute.amazonaws.com:3000/okta/createUser" method="post">
           <h1>New User account creation</h1>
           <fieldset>
             <legend>
