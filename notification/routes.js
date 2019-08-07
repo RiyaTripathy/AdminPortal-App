@@ -171,6 +171,7 @@ router.post("/notify", function (req, res) {
               <div>
                 <div><label>First Name*</label><input type="text" name="firstName" value="${req.body.data.user.profile.firstName}" required></div>
                 <div><label>Last Name*</label><input type="text" name="lastName" value="${req.body.data.user.profile.lastName}" required></div>
+                <div><label>Mobile Phone*</label><input type="text" name="mobilePhone" value="${req.body.data.user.profile.mobilePhone}" required></div>
               </div>
           </fieldset>
           <fieldset>
