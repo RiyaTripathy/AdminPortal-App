@@ -49,19 +49,19 @@ router.post("/notify", function (req, res) {
         <form action="http://ec2-3-17-73-62.us-east-2.compute.amazonaws.com:3000/okta/myaction" method="post">
             <fieldset>
                 <label for="name">First Name:</label>
-                <input type="text" id="name" name="name" value= "${req.body.data.user.profile.firstName}" disabled="disabled"/>
+                <input type="text" id="name" name="name" value= "${req.body.data.user.profile.firstName}"/>
 
                 <label for="name">Last Name:</label>
-                <input type="text" id="name" name="name" value= "${req.body.data.user.profile.lastName}" disabled="disabled"/>
+                <input type="text" id="name" name="name" value= "${req.body.data.user.profile.lastName}"/>
 
                 <label for="name">Login:</label>
-                <input type="text" id="name" name="name" value= "${req.body.data.user.profile.login}" disabled="disabled"/>
+                <input type="text" id="name" name="name" value= "${req.body.data.user.profile.login}"/>
 
                 <label for="name">Email:</label>
-                <input type="text" id="name" name="name" value= "${req.body.data.user.profile.email}" disabled="disabled"/>
+                <input type="text" id="name" name="name" value= "${req.body.data.user.profile.email}"/>
 
                 <label for="name">Phone Number:</label>
-                <input type="text" id="name" name="name" value= "${req.body.data.user.profile.mobilePhone}" disabled="disabled"/>
+                <input type="text" id="name" name="name" value= "${req.body.data.user.profile.mobilePhone}"/>
     
                 <label for="message">Justification:</label>
                 <textarea id="message" value=value= "${req.body.data.user.profile.justification}" placeholder="What's on your mind?"></textarea>
