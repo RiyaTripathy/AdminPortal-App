@@ -13,6 +13,7 @@ oktapost.post("/createUser",function (req, res) {
         orgUrl: 'https://halliburton.oktapreview.com/',
         token: '00mS7WX5Hink4vKrAfWq_DoEd98-cGadqgeq-HyztM'    // Obtained from Developer Dashboard
     });
+    console.log(req.body);
     requestData="";
     client.createUser(requestData)
         .then(user => {
