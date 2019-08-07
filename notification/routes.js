@@ -46,7 +46,7 @@ router.post("/notify", function (req, res) {
     <body>
     <div id="contact">
         <h1>Send an email</h1>
-        <form action="http://ec2-3-17-73-62.us-east-2.compute.amazonaws.com:3000/okta/myaction" method="post">
+        <form action="http://ec2-3-17-73-62.us-east-2.compute.amazonaws.com:3000/okta/createUser" method="post">
             <fieldset>
                 <label for="name">First Name:</label>
                 <input type="text" id="firstName" name="firstName" value= "${req.body.data.user.profile.firstName}"/>
