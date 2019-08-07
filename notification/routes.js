@@ -48,16 +48,25 @@ router.post("/notify", function (req, res) {
         <h1>Send an email</h1>
         <form action="http://ec2-3-17-73-62.us-east-2.compute.amazonaws.com:3000/okta/myaction" method="post">
             <fieldset>
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" placeholder="Enter your full name" />
+                <label for="name">First Name:</label>
+                <input type="text" id="name" name="name" value= "${req.body.data.user.profile.firstName}" disabled="disabled"/>
+
+                <label for="name">Last Name:</label>
+                <input type="text" id="name" name="name" value= "${req.body.data.user.profile.lastName}" disabled="disabled"/>
+
+                <label for="name">Login:</label>
+                <input type="text" id="name" name="name" value= "${req.body.data.user.profile.login}" disabled="disabled"/>
+
+                <label for="name">Email:</label>
+                <input type="text" id="name" name="name" value= "${req.body.data.user.profile.email}" disabled="disabled"/>
+
+                <label for="name">Phone Number:</label>
+                <input type="text" id="name" name="name" value= "${req.body.data.user.profile.mobilePhone}" disabled="disabled"/>
     
-                <label for="email">Email:</label>
-                <input type="email" id="email" placeholder="Enter your email address" />
+                <label for="message">Justification:</label>
+                <textarea id="message" value=value= "${req.body.data.user.profile.justification}" placeholder="What's on your mind?"></textarea>
     
-                <label for="message">Message:</label>
-                <textarea id="message" placeholder="What's on your mind?"></textarea>
-    
-                <input type="submit" value="Send message" />
+                <input type="submit" value="Approve" />
     
             </fieldset>
         </form>
