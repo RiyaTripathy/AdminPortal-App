@@ -18,6 +18,7 @@ oktapost.post("/createUser",function (req, res) {
     client.createUser(requestData)
         .then(user => {
             console.log('Created user', user);
+            res.send("User Created");
         });
 });
 
