@@ -15,7 +15,7 @@ oktapost.get("/info",(req,res) =>{
 oktapost.post("/createUser",function (req, res) {
     console.log(req.body)
     console.log("fname: "+ req.body.firstName);
-    firstname = req.body.firstName;
+    firstname = req.body.firstname;
     lastname = req.body.lastName;
     email = req.body.email;
     login = req.body.login;
@@ -39,7 +39,6 @@ oktapost.post("/createUser",function (req, res) {
     client.createUser(newUser)
         .then(user => {
            console.log('Created user', user);
-           res.send("User Created");
         });
 });
 

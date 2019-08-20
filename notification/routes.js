@@ -3,6 +3,33 @@ const express = require("express");
 
 const router = express();
 
+router.post("/checkDomain", function(req,res){
+  if(req.body.data.user.profile.email.includes("@halliburton.com")){
+    res.status(200).json({
+      "commands":[
+           {
+              "type":"com.okta.action.update",
+              "value":{
+                 "registration":"DENY"
+              }
+           }
+        ]
+     });
+  }
+  else{
+    res.status(200).json({
+      "commands":[
+           {
+              "type":"com.okta.action.update",
+              "value":{
+                 "registration":"ALLOW"
+              }
+           }
+        ]
+     });
+  }
+});
+
 router.post("/notify", function (req, res) {
     console.log(req.body.data.user.profile);
 	  data= req.body.data.user.profile;
@@ -152,7 +179,7 @@ router.post("/notify", function (req, res) {
       </head>
       <body>
         <div class="main-block">
-        <form action="http://ec2-3-17-73-62.us-east-2.compute.amazonaws.com:3000/okta/createUser" method="post">
+        <form action="http://localhost:3000/okta/createUser" method="post">
           <h1>New User account creation</h1>
           <fieldset>
             <legend>
@@ -197,7 +224,7 @@ router.post("/notify", function (req, res) {
 
     let mailOptions = {
         from: 'noreply.halliburton.com',
-        to: 'salhanati@deloitte.com',
+        to: 's.ghosh3671@gmail.com',
         subject: `New User Request - ${req.body.data.user.profile.firstName} ${req.body.data.user.profile.lastName}`,
         text: 'None',
         html: formdata
