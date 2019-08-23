@@ -37,6 +37,9 @@ oktapost.post("/createUser",function (req, res) {
             password: password
         }
     };
+    const status = {
+        activate: 'false'
+    }
     console.log(newUser)
     const okta = require('@okta/okta-sdk-nodejs');
     const client = new okta.Client({
@@ -44,11 +47,21 @@ oktapost.post("/createUser",function (req, res) {
         token: '00mS7WX5Hink4vKrAfWq_DoEd98-cGadqgeq-HyztM'    // Obtained from Developer Dashboard
     });
 
-
-    client.createUser(newUser)
+var id = "";
+    client.createUser(newUser,status)
         .then(user => {
-           console.log('Created user', user);
-        });
+            id=user.id;
+           console.log('Created user');
+                client.activateUser(id)
+                    .then(user => {
+                        console.log('User activated');
+                    });
+        }
+        );
+
+
+
+
 });
 
 oktapost.post('/myaction', function(req, res) {
