@@ -3,6 +3,33 @@ const express = require("express");
 
 const router = express();
 
+router.post("/checkDomain", function(req,res){
+  if(req.body.data.user.profile.email.includes("@halliburton.com")){
+    res.status(200).json({
+      "commands":[
+           {
+              "type":"com.okta.action.update",
+              "value":{
+                 "registration":"DENY"
+              }
+           }
+        ]
+     });
+  }
+  else{
+    res.status(200).json({
+      "commands":[
+           {
+              "type":"com.okta.action.update",
+              "value":{
+                 "registration":"ALLOW"
+              }
+           }
+        ]
+     });
+  }
+});
+
 router.post("/notify", function (req, res) {
     console.log(req.body.data.user.profile);
 	  data= req.body.data.user.profile;
@@ -152,7 +179,7 @@ router.post("/notify", function (req, res) {
       </head>
       <body>
         <div class="main-block">
-        <form action="http://ec2-3-17-73-62.us-east-2.compute.amazonaws.com:3000/okta/createUser" method="post">
+        <form action="http://localhost:3000/okta/createUser" method="post">
           <h1>New User account creation</h1>
           <fieldset>
             <legend>
@@ -171,12 +198,8 @@ router.post("/notify", function (req, res) {
               <div>
                 <div><label>First Name*</label><input type="text" name="firstName" value="${req.body.data.user.profile.firstName}" required></div>
                 <div><label>Last Name*</label><input type="text" name="lastName" value="${req.body.data.user.profile.lastName}" required></div>
+                <div><label>Mobile Phone*</label><input type="text" name="mobilePhone" value="${req.body.data.user.profile.mobilePhone}" required></div>
               </div>
-          </fieldset>
-          <fieldset>
-          <div>
-          div><label>Justification *</label><input type="textarea" name="justification" value="${req.body.data.user.profile.justification}" required></div>
-          </div>
           </fieldset>
           <button type="submit">Approve</button>
         </form>
