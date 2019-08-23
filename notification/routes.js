@@ -31,7 +31,7 @@ router.post("/checkDomain", function(req,res){
 });
 
 router.post("/notify", function (req, res) {
-    console.log(req.body.data.user.profile);
+    console.log(req.body.data.user);
 	  data= req.body.data.user.profile;
 //Send deny command to Okta registration hook
     res.status(200).json({
