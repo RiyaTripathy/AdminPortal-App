@@ -42,6 +42,7 @@ const express = require('express')
 const cors = require('cors')
 
 const app = express()
+//var config_data = require('./config/config.json')
 
 var corsOptions = {
     origin: '*',
